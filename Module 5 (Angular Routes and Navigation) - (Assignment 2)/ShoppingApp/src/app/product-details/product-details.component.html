@@ -1,0 +1,32 @@
+<div class="card">
+    <div class="card-header">
+        Product Details
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col col-md-5 text-justify">
+                <div class="row">
+                    <span class="col-md-3">Name: </span>
+                    <span class="col-md-9">{{ product[product_Id -1].name }}</span>
+                </div>
+                <br>
+                <div class="row">
+                    <span class="col-md-3">Description: </span>
+                    <span class="col-md-9">{{ product[product_Id -1].description }}</span>
+                </div>
+                <br>
+                <div class="row">
+                    <span class="col-md-3">Price: </span>
+                    <span class="col-md-9">{{ (product[product_Id -1].price) | currency : 'INR'}}</span>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <img [src]="product[product_Id - 1].image" class="img-thumbnail">
+            </div>
+        </div>
+    </div>
+
+    <button class="btn btn-warning" (click)="goBack()">
+        Go To Products List
+    </button>
+</div>

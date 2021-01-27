@@ -1,0 +1,141 @@
+<div class="row">
+    <div class="card col-md-7">
+        <div class="card-header bg-primary text-white text-center">Template-Driven Form</div>
+        <div class="card-body">
+            <form #tdForm="ngForm" (ngSubmit)="submit(tdForm)">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input id="fullName" type="text" class="form-control"
+                            name="fullName"
+                            ngModel
+                            #fullName="ngModel"
+                            required
+                            minlength="3"
+                            maxlength="30">
+
+                    <div class="alert alert-danger" *ngIf="fullName.touched && !fullName.valid">
+                        <div *ngIf="fullName.errors.required">
+                            Full Name is required.
+                        </div>
+                        <div *ngIf="fullName.errors.minlength">
+                            Min. length is 3.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" type="text" class="form-control"
+                            name="email"
+                            ngModel
+                            #email="ngModel"
+                            required
+                            pattern="[a-zA-Z0-9._]+@[a-zA-Z]+.[a-z]{2,4}$">
+                    
+                    <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+                        <div *ngIf="email.errors.required">
+                            Email Id is required.
+                        </div>
+                        <div *ngIf="email.errors.pattern">
+                            Please enter a valid email id
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tel">Phone No</label>
+                    <input id="tel" type="text" class="form-control"
+                            name="tel"
+                            ngModel
+                            #tel="ngModel"
+                            required
+                            minlength="10"
+                            pattern="[0-9]{10}$">
+
+                    <div class="alert alert-danger" *ngIf="tel.touched && !tel.valid">
+                        <div *ngIf="tel.errors.required">
+                            Phone no is required.
+                        </div>
+                        <div *ngIf="tel.errors.minlength">
+                            Min. length is 10.
+                        </div>
+                        <div *ngIf="tel.errors.pattern">
+                            Please enter a valid Phone no
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="pwd">Password</label>
+                    <input id="pwd" type="password" class="form-control"
+                            name="pwd"
+                            ngModel
+                            #pwd="ngModel"
+                            required
+                            minlength="8">
+
+                    <div class="alert alert-danger" *ngIf="pwd.touched && !pwd.valid">
+                        <div *ngIf="pwd.errors.required">
+                            Password is required.
+                        </div>
+                        <div *ngIf="pwd.errors.minlength">
+                            Min. length is 8.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPwd">Confirm Password</label>
+                    <input id="confirmPwd" type="password" class="form-control"
+                            name="confirmPwd"
+                            ngModel
+                            #confirmPwd="ngModel"
+                            required
+                            minlength="8">
+
+                    <div class="alert alert-danger" *ngIf="confirmPwd.touched && !confirmPwd.valid">
+                        <div *ngIf="confirmPwd.errors.required">
+                            Password is required.
+                        </div>
+                        <div *ngIf="confirmPwd.errors.minlength">
+                            Min. length is 8.
+                        </div>
+                        <div *ngIf="(confirmPwd.value === pwd.value)">
+                            Password mismatch.
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary col" [disabled]="!tdForm.valid">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-md-1"></div>
+<!--  *ngIf="formData === tdForm" -->
+    <div class="card col-md-4">
+        <div class="card-header bg-primary text-white text-center">Form Data</div>
+        <div class="card-body">
+            <div class="row">
+                <span class="col-md-5">Full Name: </span>
+                <span class="col-md-7">{{ tdForm.value.fullName }}</span>
+            </div>
+            <div class="row">
+                <span class="col-md-5">Email Id: </span>
+                <span class="col-md-7">{{ tdForm.value.email }}</span>
+            </div>
+            <div class="row">
+                <span class="col-md-5">Phone No.: </span>
+                <span class="col-md-7">{{ tdForm.value.tel }}</span>
+            </div>
+            <div class="row">
+                <span class="col-md-5">Password: </span>
+                <span class="col-md-7">{{ tdForm.value.pwd }}</span>
+            </div>
+            <div class="row">
+                <span class="col-md-5">Confirm Password: </span>
+                <span class="col-md-7">{{ tdForm.value.confirmPwd }}</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,84 @@
+<div class="row">
+    <div class="card col-md-7">
+        <div class="card-header bg-primary text-white text-center">Template-Driven Form</div>
+        <div class="card-body">
+            <form [formGroup]="rForm" (ngSubmit)=onSubmit(rForm)>
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input id="fullName" type="text" class="form-control" formControlName="fullName">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" type="text" class="form-control" name="email"
+                        pattern="[a-zA-Z0-9._]+@[a-zA-Z]+.[a-z]{2,4}$" formControlName="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input id="address" type="text" class="form-control" name="address" formControlName="address">
+                </div>
+
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input id="city" type="text" class="form-control" name="city" formControlName="city">
+                </div>
+
+                <div class="form-group">
+                    <label for="tel">Phone No</label>
+                    <input id="tel" type="text" class="form-control" name="tel" pattern="[0-9]{10}$"
+                        formControlName="tel">
+                </div>
+
+                <div class="form-group">
+                    <label for="pwd">Password</label>
+                    <input id="pwd" type="password" class="form-control" name="pwd" formControlName="pwd">
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPwd">Confirm Password</label>
+                    <input id="confirmPwd" type="password" class="form-control" name="confirmPwd"
+                        formControlName="confirmPwd">
+                </div>
+
+                <button type="submit" class="btn btn-primary col">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-md-1"></div>
+
+    <div class="card col-md-4" *ngIf="formData === rForm">
+        <div class="card-header bg-primary text-white text-center">Form Data</div>
+        <div class="card-body">
+            <div class="row">
+                <span class="col-md-5">Full Name: </span>
+                <span class="col-md-7">{{ rForm.value.fullName }}</span>
+            </div>
+            <div class="row">
+                <span class="col-md-5">Email Id: </span>
+                <span class="col-md-7">{{ rForm.value.email }}</span>
+            </div>
+            <div class="row">
+                <span class="col-md-5">Address: </span>
+                <span class="col-md-7">{{ rForm.value.address }}</span>
+            </div>
+            <div class="row">
+                <span class="col-md-5">City: </span>
+                <span class="col-md-7">{{ rForm.value.city }}</span>
+            </div>
+            <div class="row">
+                <span class="col-md-5">Phone No.: </span>
+                <span class="col-md-7">{{ rForm.value.tel }}</span>
+            </div>
+            <div class="row">
+                <span class="col-md-5">Password: </span>
+                <span class="col-md-7">{{ rForm.value.pwd }}</span>
+            </div>
+            <div class="row">
+                <span class="col-md-5">Confirm Password: </span>
+                <span class="col-md-7">{{ rForm.value.confirmPwd }}</span>
+            </div>
+        </div>
+    </div>
+</div>

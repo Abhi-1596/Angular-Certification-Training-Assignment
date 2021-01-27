@@ -1,0 +1,27 @@
+<div class="container">
+    <div id="empListTable">
+        <h1 class="text-center">Employee List</h1>
+    <table class="table table-hover table-bordered table-striped table-sm">
+        <thead>
+            <tr>
+                <th scope="col" >Employee ID</th>
+                <th scope="col" >First Name</th>
+                <th scope="col" >Last Name</th>
+                <th scope="col" >Department</th>
+                <th scope="col" >City</th>
+                <th scope="col" >Email</th>
+            </tr>
+        </thead>
+        <tbody *ngFor= "let empDetail of empDetails">
+            <tr>
+                <th scope="row" >{{ empDetail.empId }}</th>
+                <td>{{ empDetail.firstName }}</td>
+                <td>{{ empDetail.lastName }}</td>
+                <td>{{ empDetail.dept }}</td>
+                <td>{{ empDetail.city }}</td>
+                <td>{{ empDetail.eMail }}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+[
+  {
+    "id": 123,
+    "employee_name": "Abhilash Mishra",
+    "employee_salary": 400000,
+    "employee_age": 24,
+    "profile_image": "https://www.kindpng.com/picc/m/495-4952535_create-digital-profile-icon-blue-user-profile-icon.png"
+  },
+  {
+    "id": 154,
+    "employee_name": "Abhinav Pranjal Rai",
+    "employee_salary": 600000,
+    "employee_age": 25,
+    "profile_image": "https://cdn1.iconfinder.com/data/icons/technology-devices-2/100/Profile-512.png"
+  },
+  {
+    "id": 174,
+    "employee_name": "G. Sravan Kumar",
+    "employee_salary": 500000,
+    "employee_age": 23,
+    "profile_image": "https://lh3.googleusercontent.com/proxy/CrKiR4KvWW0UZ1ncWpHjvuP3jQVElmKFD2l73n6viK3P2vt0EFnzy--uUPiZEMzPu9saANJ0j-c-QtQ_4g08WlIuO9IAAbQEMduDGz6pXb8k6SwsPsO3FjkJIHdKe6QLHVX6ODEnQdCkGQ"
+  },
+  {
+    "id": 220,
+    "employee_name": "Arpit Mittal",
+    "employee_salary": 750000,
+    "employee_age": 23,
+    "profile_image": "https://cdn4.vectorstock.com/i/1000x1000/35/68/person-icon-male-user-profile-avatar-vector-18833568.jpg"
+  }
+]

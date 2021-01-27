@@ -1,0 +1,87 @@
+<div class="container">
+    <div id="empListTable">
+        <h1 class="text-center">Employee List</h1>
+    <table class="table table-bordered table-sm">
+        <thead>
+            <tr>
+                <th scope="col" >Employee ID</th>
+                <th scope="col" >First Name</th>
+                <th scope="col" >Last Name</th>
+                <th scope="col" >Department</th>
+                <th scope="col" >City</th>
+                <th scope="col" >Email</th>
+                <th scope="col" >Salary</th>
+                <th scope="col" >DOB</th>
+                <th scope="col" >Action</th>
+            </tr>
+        </thead>
+        <tbody *ngFor= "let empDetail of empDetails">
+            <tr appColor>
+                <th scope="row" >{{ empDetail.empId }}</th>
+                <td>{{ empDetail.firstName }}</td>
+                <td>{{ empDetail.lastName }}</td>
+                <td>{{ empDetail.dept }}</td>
+                <td>{{ empDetail.city }}</td>
+                <td>{{ empDetail.eMail }}</td>
+                <td>{{ empDetail.sal | currency : 'INR'}}</td>
+                <td>{{ empDetail.dob | date : 'mediumDate' | uppercase }}</td>
+                <td>
+                    <button class="btn btn-warning btn-sm" (click)="editEmp(empDetail)">
+                        Edit
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+
+    <div class="row">
+        <div class="col col-md-3"></div>
+        <div class="col col-md-6">
+            <div class="card" *ngIf="editEmpClick">
+                <div class="card-header text-center">
+                    Edit Employee
+                </div>
+                <div class="card-body">
+                    <div class="input-group">
+                        <label class= "input-group-text col col-md-3">First Name</label>
+                        <input type="text" class="form-control col col-md-9" [(ngModel)]="employee.firstName" name="firstName">
+                    </div>
+
+                    <div class="input-group">
+                        <label class= "input-group-text col col-md-3">Last Name</label>
+                        <input type="text" class="form-control col col-md-9" [(ngModel)]="employee.lastName" name="lastName">
+                    </div>
+
+                    <div class="input-group">
+                        <label class= "input-group-text col col-md-3">Department</label>
+                        <input type="text" class="form-control col col-md-9" [(ngModel)]="employee.dept" name="dept">
+                    </div>
+
+                    <div class="input-group">
+                        <label class= "input-group-text col col-md-3">City</label>
+                        <input type="text" class="form-control col col-md-9" [(ngModel)]="employee.city" name="city">
+                    </div>
+
+                    <div class="input-group">
+                        <label class= "input-group-text col col-md-3">Email</label>
+                        <input type="text" class="form-control col col-md-9" [(ngModel)]="employee.eMail" name="eMail">
+                    </div>
+
+                    <div class="input-group">
+                        <label class= "input-group-text col col-md-3">Salary</label>
+                        <input type="text" class="form-control col col-md-9" [(ngModel)]="employee.sal" name="sal">
+                    </div>
+
+                    <div class="input-group">
+                        <label class= "input-group-text col col-md-3">DOB</label>
+                        <input type="text" class="form-control col col-md-9" [(ngModel)]="employee.dob" name="dob">
+                    </div>
+                    <br>
+                    <button class="btn btn-success btn-sm col col-md-5" (click)="updateEmp()">Update</button>
+                    <button class="btn btn-danger btn-sm col col-md-5 float-right" (click)="closeEmp()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

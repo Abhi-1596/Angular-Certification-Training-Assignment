@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Nokia 5.1 Plus",
+    "price": 8999,
+    "image": "https://fdn.gsmarena.com/imgroot/reviews/18/nokia-5-1-plus/lifestyle/-728w2/gsmarena_001.jpg",
+    "description": "The Nokia 5.1 Plus sports a high-gloss design and comes with a 2.5D glass back, which makes it looks very stylish. It features a 5.86-inch HD+ display, which has good colour reproduction and sunlight legibility. The phone is powered by a MediaTek Helio P60 SoC and comes with 3GB of RAM and 32GB of storage. App and UI performance is quick thanks to the stock Android 8.1 Oreo. It's also part of the Android One programme so updates should be timely. Games run well too but the phone gets warm quickly. The rear 13-megapixel camera captures decent details in daylight but struggles a bit in low-light. The 3060mAh battery easily delivers all-day battery life, which is very good."
+  },
+  {
+    "id": 2,
+    "name": "Samsung A10s",
+    "price": 10999,
+    "image": "https://images.firstpost.com/wp-content/uploads/2019/08/galaxy-A10s-1280.jpg",
+    "description": "Samsung Galaxy A10s smartphone was launched on 12th August 2019. The phone comes with a 6.20-inch touchscreen display with a resolution of 720x1520 pixels. Samsung Galaxy A10s is powered by a 1.5GHz octa-core processor. It comes with 2GB of RAM. The Samsung Galaxy A10s runs Android 9 Pie and is powered by a 4000mAh battery.\nAs far as the cameras are concerned, the Samsung Galaxy A10s on the rear packs a 13-megapixel primary camera with an f/1.8 aperture and a second 2-megapixel camera with an f/2.4 aperture. The rear camera setup has autofocus. It sports a 8-megapixel camera on the front for selfies, with an f/2.0 aperture.\nThe Samsung Galaxy A10s runs One UI based on Android 9 Pie and packs 32GB of inbuilt storage that can be expanded via microSD card (up to 512GB) with a dedicated slot. The Samsung Galaxy A10s is a dual-SIM (GSM and GSM) smartphone that accepts Nano-SIM and Nano-SIM cards. The Samsung Galaxy A10s measures 156.90 x 75.80 x 7.80mm (height x width x thickness) and weighs 168.00 grams. It was launched in Black, Blue, Green, and Red colours.\nConnectivity options on the Samsung Galaxy A10s include Wi-Fi, GPS, 3G, and 4G (with support for Band 40 used by some LTE networks in India). Sensors on the phone include accelerometer and fingerprint sensor. The Samsung Galaxy A10s supports face unlock."
+  },
+  {
+    "id": 3,
+    "name": "Redmi Mi note 5 pro",
+    "price": 12999,
+    "image": "https://akm-img-a-in.tosshub.com/sites/btmt/images/stories/redmi-note-5-pro_660_021418044653.jpg",
+    "description": "The Xiaomi Redmi Note 5 Pro features a metal chassis and a 5.99-inch, full-HD+ display with Gorilla Glass. The design is a bit plain but the build and finish is good. The display also has very good levels of brightness and colours are nice and punchy. This is the first phone to feature Qualcomm's Snapdragon 636 SoC, which offers plenty of power for gaming and heavy apps. You can choose between either 4GB or 6GB of RAM but the storage is the same, at 64GB. Camera performance is also good. The Note 5 Pro features a Portrait mode too for the front and rear camera, which works well. Battery life is also very good, as the phone easily lasts for an entire day on a single charge and fast charging is also supported although you'll have to buy a fast charger separately."
+  },
+  {
+    "id": 4,
+    "name": "Vivo Y2",
+    "price": 9500,
+    "image": "https://phoneaqua.com/products/ViVo%20Y2.PNG",
+    "description": "Vivo Y20 smartphone was launched on 26th August 2020. The phone comes with a 6.51-inch touchscreen display with a resolution of 720x1600 pixels. It comes with 4GB of RAM. The Vivo Y20 runs Android 10 and is powered by a 5000mAh battery. The Vivo Y20 supports proprietary fast charging.\nAs far as the cameras are concerned, the Vivo Y20 on the rear packs a 13-megapixel primary camera with an f/2.2 aperture; a second 2-megapixel camera with an f/2.4 aperture and a third 2-megapixel camera with an f/2.4 aperture. The rear camera setup has autofocus. It sports a 8-megapixel camera on the front for selfies, with an f/1.8 aperture.\nThe Vivo Y20 runs Funtouch OS 10.5 based on Android 10 and packs 64GB of inbuilt storage. The Vivo Y20 is a dual-SIM (GSM and GSM) smartphone that accepts Nano-SIM and Nano-SIM cards. The Vivo Y20 measures 164.41 x 76.00 x 8.41mm (height x width x thickness) and weighs 192.30 grams. It was launched in Obsidian Black and Dawn White colours.\nConnectivity options on the Vivo Y20 include Wi-Fi, GPS, Bluetooth v5.00, USB OTG, Micro-USB, and FM radio. Sensors on the phone include accelerometer, ambient light sensor, compass/ magnetometer, gyroscope, proximity sensor, and fingerprint sensor."
+  }
+]
