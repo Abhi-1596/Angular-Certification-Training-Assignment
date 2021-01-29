@@ -2,106 +2,86 @@
     <div class="card col-md-7">
         <div class="card-header bg-primary text-white text-center">Template-Driven Form</div>
         <div class="card-body">
-            <form #tdForm="ngForm" (ngSubmit)="submit(tdForm)">
+            <form #tdForm="ngForm" (ngSubmit)="onSubmit(tdForm)">
                 <div class="form-group">
                     <label for="fullName">Full Name</label>
-                    <input id="fullName" type="text" class="form-control"
-                            name="fullName"
-                            ngModel
-                            #fullName="ngModel"
-                            required
-                            minlength="3"
-                            maxlength="30">
+                    <input id="fullName" type="text" class="form-control" name="fullName"
+                        [ngModel]="tdForm.value.fullName | titlecase " (ngModelChange)="tdForm.value.fullName=$event"
+                        #fullName="ngModel" required minlength="3" maxlength="30">
 
                     <div class="alert alert-danger" *ngIf="fullName.touched && !fullName.valid">
                         <div *ngIf="fullName.errors.required">
-                            Full Name is required.
+                            <li>Full Name is required.</li>
                         </div>
                         <div *ngIf="fullName.errors.minlength">
-                            Min. length is 3.
+                            <li>Min. length is 3.</li>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input id="email" type="text" class="form-control"
-                            name="email"
-                            ngModel
-                            #email="ngModel"
-                            required
-                            pattern="[a-zA-Z0-9._]+@[a-zA-Z]+.[a-z]{2,4}$">
-                    
+                    <input id="email" type="text" class="form-control" name="email"
+                        [ngModel]="tdForm.value.email | lowercase" (ngModelChange)="tdForm.value.email=$event"
+                        #email="ngModel" required pattern="[a-zA-Z0-9._]+@[a-zA-Z]+[.][a-z]{2,4}$">
+
                     <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
                         <div *ngIf="email.errors.required">
-                            Email Id is required.
+                            <li>Email Id is required.</li>
                         </div>
                         <div *ngIf="email.errors.pattern">
-                            Please enter a valid email id
+                            <li>Please enter a valid email id</li>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="tel">Phone No</label>
-                    <input id="tel" type="text" class="form-control"
-                            name="tel"
-                            ngModel
-                            #tel="ngModel"
-                            required
-                            minlength="10"
-                            pattern="[0-9]{10}$">
+                    <input id="tel" type="text" class="form-control" name="tel" ngModel #tel="ngModel" required
+                        minlength="10" pattern="[0-9]{10}$">
 
                     <div class="alert alert-danger" *ngIf="tel.touched && !tel.valid">
                         <div *ngIf="tel.errors.required">
-                            Phone no is required.
+                            <li>Phone no is required.</li>
                         </div>
                         <div *ngIf="tel.errors.minlength">
-                            Min. length is 10.
+                            <li>Min. length is 10.</li>
                         </div>
                         <div *ngIf="tel.errors.pattern">
-                            Please enter a valid Phone no
+                            <li>Please enter a valid Phone no</li>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="pwd">Password</label>
-                    <input id="pwd" type="password" class="form-control"
-                            name="pwd"
-                            ngModel
-                            #pwd="ngModel"
-                            required
-                            minlength="8">
+                    <input id="pwd" type="password" class="form-control" name="pwd" ngModel #pwd="ngModel" required
+                        minlength="8">
 
                     <div class="alert alert-danger" *ngIf="pwd.touched && !pwd.valid">
                         <div *ngIf="pwd.errors.required">
-                            Password is required.
+                            <li>Password is required.</li>
                         </div>
                         <div *ngIf="pwd.errors.minlength">
-                            Min. length is 8.
+                            <li>Min. length is 8.</li>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="confirmPwd">Confirm Password</label>
-                    <input id="confirmPwd" type="password" class="form-control"
-                            name="confirmPwd"
-                            ngModel
-                            #confirmPwd="ngModel"
-                            required
-                            minlength="8">
+                    <input id="confirmPwd" type="password" class="form-control" name="confirmPwd" ngModel
+                        #confirmPwd="ngModel" required minlength="8" appConfirmEqualValidator="pwd">
 
                     <div class="alert alert-danger" *ngIf="confirmPwd.touched && !confirmPwd.valid">
                         <div *ngIf="confirmPwd.errors.required">
-                            Password is required.
+                            <li>Password is required.</li>
                         </div>
                         <div *ngIf="confirmPwd.errors.minlength">
-                            Min. length is 8.
+                            <li>Min. length is 8.</li>
                         </div>
-                        <div *ngIf="(confirmPwd.value === pwd.value)">
-                            Password mismatch.
+                        <div *ngIf="confirmPwd.touched && confirmPwd.errors.notEqual && !confirmPwd.errors.required">
+                            <li>Password & Confirm Password doesnot match</li>
                         </div>
                     </div>
                 </div>
@@ -112,8 +92,8 @@
     </div>
 
     <div class="col-md-1"></div>
-<!--  *ngIf="formData === tdForm" -->
-    <div class="card col-md-4">
+
+    <div class="card col-md-4" *ngIf='data && (formData === tdForm)'>
         <div class="card-header bg-primary text-white text-center">Form Data</div>
         <div class="card-body">
             <div class="row">
@@ -135,6 +115,10 @@
             <div class="row">
                 <span class="col-md-5">Confirm Password: </span>
                 <span class="col-md-7">{{ tdForm.value.confirmPwd }}</span>
+            </div>
+
+            <div class="row">
+                <button class="btn btn-warning col" (click)="onClickSubmitOrClose()">Close</button>
             </div>
         </div>
     </div>

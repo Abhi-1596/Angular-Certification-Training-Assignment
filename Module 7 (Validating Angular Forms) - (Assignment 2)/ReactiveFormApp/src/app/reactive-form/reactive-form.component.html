@@ -1,146 +1,148 @@
 <div class="row">
     <div class="card col-md-7">
-        <div class="card-header bg-primary text-white text-center">Template-Driven Form</div>
-        <div class="card-body">
-            <form [formGroup]="rForm" (ngSubmit)=onSubmit(rForm)>
+        <div class="card-header bg-danger text-white text-center">Template-Driven Form</div>
+        <div class="card-body bg-secondary text-white">
+            <form [formGroup]="reactiveForm" (ngSubmit)=onSubmit(reactiveForm)>
                 <div class="form-group">
                     <label for="fullName">Full Name</label>
-                    <input id="fullName" type="text" class="form-control"
-                            formControlName="fullName">
+                    <input id="fullName" type="text" class="form-control" [value]="fullName.value | titlecase"
+                        formControlName="fullName">
+
                     <div class="alert alert-danger" *ngIf="fullName.touched && !fullName.valid">
                         <div *ngIf="fullName.errors.required">
-                            Full Name is required
+                            <li>Full Name is required</li>
                         </div>
                         <div *ngIf="fullName.errors.minlength">
-                            Full Name should be minimum {{ fullName.errors.minlength.requiredLength }} characters
+                            <li>Full Name should be minimum {{ fullName.errors.minlength.requiredLength }} characters
+                            </li>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input id="email" type="text" class="form-control"
-                            formControlName="email">
+                    <input id="email" type="text" class="form-control" [value]="email.value | lowercase"
+                        formControlName="email">
+
                     <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
                         <div *ngIf="email.errors.required">
-                            Email Id is required
+                            <li>Email Id is required</li>
                         </div>
                         <div *ngIf="email.errors.pattern">
-                            Please enter a valid Email Id
+                            <li>Please enter a valid Email Id</li>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="address">Address</label>
-                    <input id="address" type="text" class="form-control"
-                            formControlName="address">
+                    <input id="address" type="text" class="form-control" formControlName="address">
+
                     <div class="alert alert-danger" *ngIf="address.touched && !address.valid">
                         <div *ngIf="address.errors.required">
-                            Address is required
+                            <li>Address is required</li>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="city">City</label>
-                    <input id="city" type="text" class="form-control"
-                            formControlName="city">
+                    <input id="city" type="text" class="form-control" formControlName="city" [value]="city.value | titlecase">
+
                     <div class="alert alert-danger" *ngIf="city.touched && !city.valid">
                         <div *ngIf="city.errors.required">
-                            City is required
+                            <li>City is required</li>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="tel">Phone No</label>
-                    <input id="tel" type="text" class="form-control"
-                            formControlName="tel">
+                    <input id="tel" type="text" class="form-control" formControlName="tel">
+
                     <div class="alert alert-danger" *ngIf="tel.touched && !tel.valid">
                         <div *ngIf="tel.errors.required">
-                            Phone is required
+                            <li>Phone is required</li>
                         </div>
                         <div *ngIf="tel.errors.pattern">
-                            Please enter a valid Phone number
+                            <li>Please enter a valid Phone number</li>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="pwd">Password</label>
-                    <input id="pwd" type="password" class="form-control"
-                            formControlName="pwd">
+                    <input id="pwd" type="password" class="form-control" formControlName="pwd">
+
                     <div class="alert alert-danger" *ngIf="pwd.touched && !pwd.valid">
                         <div *ngIf="pwd.errors.required">
-                            Password is required
+                            <li>Password is required</li>
                         </div>
                         <div *ngIf="pwd.errors.minlength">
-                            Password should be minimum {{ pwd.errors.minlength.requiredLength }} characters
-                        </div>
-                        <div *ngIf="pwd.errors.pattern">
-                            Please enter a valid Password
+                            <li>Password should be minimum {{ pwd.errors.minlength.requiredLength }} characters</li>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="confirmPwd">Confirm Password</label>
-                    <input id="confirmPwd" type="password" class="form-control"
-                            formControlName="confirmPwd">
+                    <input id="confirmPwd" type="password" class="form-control" formControlName="confirmPwd">
+
                     <div class="alert alert-danger" *ngIf="confirmPwd.touched && !confirmPwd.valid">
                         <div *ngIf="confirmPwd.errors.required">
-                            Confirm Password is required
+                            <li>Confirm Password is required</li>
                         </div>
                         <div *ngIf="confirmPwd.errors.minlength">
-                            Confirm Password should be minimum {{ confirmPwd.errors.minlength.requiredLength }} characters
+                            <li>Confirm Password should be minimum {{ confirmPwd.errors.minlength.requiredLength }}
+                                characters</li>
                         </div>
-                        <div *ngIf="pwd.errors.pattern">
-                            Please enter a valid Password
+                        <div *ngIf="confirmPwd.errors.confirmedValidator">
+                            <li>Password & Confirm Password doesn't match</li>
                         </div>
-                        <!-- <div *ngIf="">
-                            Password & Confirm Password doesn't match
-                        </div> -->
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary col">Submit</button>
+                <button type="submit" class="btn btn-success col" [disabled]="!reactiveForm.valid">Submit</button>
             </form>
         </div>
     </div>
 
     <div class="col-md-1"></div>
 
-    <div class="card col-md-4" *ngIf="formData === rForm">
-        <div class="card-header bg-primary text-white text-center">Form Data</div>
-        <div class="card-body">
+    <div class="card col-md-4" *ngIf="displayFormData">
+        <div class="card-header bg-info text-white text-center">Form Data</div>
+        <div class="card-body bg-secondary text-white">
             <div class="row">
                 <span class="col-md-5">Full Name: </span>
-                <span class="col-md-7">{{ rForm.value.fullName }}</span>
+                <span class="col-md-7">{{ fullName.value }}</span>
             </div>
             <div class="row">
                 <span class="col-md-5">Email Id: </span>
-                <span class="col-md-7">{{ rForm.value.email }}</span>
+                <span class="col-md-7">{{ email.value }}</span>
             </div>
             <div class="row">
                 <span class="col-md-5">Address: </span>
-                <span class="col-md-7">{{ rForm.value.address }}</span>
+                <span class="col-md-7">{{ address.value }}</span>
             </div>
             <div class="row">
                 <span class="col-md-5">City: </span>
-                <span class="col-md-7">{{ rForm.value.city }}</span>
+                <span class="col-md-7">{{ city.value }}</span>
             </div>
             <div class="row">
                 <span class="col-md-5">Phone No.: </span>
-                <span class="col-md-7">{{ rForm.value.tel }}</span>
+                <span class="col-md-7">{{ tel.value }}</span>
             </div>
             <div class="row">
                 <span class="col-md-5">Password: </span>
-                <span class="col-md-7">{{ rForm.value.pwd }}</span>
+                <span class="col-md-7">{{ pwd.value }}</span>
             </div>
             <div class="row">
                 <span class="col-md-5">Confirm Password: </span>
-                <span class="col-md-7">{{ rForm.value.confirmPwd }}</span>
+                <span class="col-md-7">{{ confirmPwd.value }}</span>
+            </div>
+
+            <div class="row">
+                <button class="btn btn-warning col text-white" (click)="onClickSubmitOrClose()">Close</button>
             </div>
         </div>
     </div>

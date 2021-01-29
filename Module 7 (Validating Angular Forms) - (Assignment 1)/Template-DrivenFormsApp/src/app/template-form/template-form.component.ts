@@ -8,8 +8,14 @@ import { Component } from '@angular/core';
 export class TemplateFormComponent {
 
   formData: any;
+  data;
 
-  submit(tdForm) {
+  onSubmit(tdForm) {
     this.formData = tdForm;
+    this.onClickSubmitOrClose();
+  }
+
+  onClickSubmitOrClose() {
+    this.data = !this.data;
   }
 }
