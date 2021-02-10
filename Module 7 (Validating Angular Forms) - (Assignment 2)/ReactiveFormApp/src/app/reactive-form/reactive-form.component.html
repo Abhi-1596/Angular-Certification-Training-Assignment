@@ -3,6 +3,7 @@
         <div class="card-header bg-danger text-white text-center">Template-Driven Form</div>
         <div class="card-body bg-secondary text-white">
             <form [formGroup]="reactiveForm" (ngSubmit)=onSubmit(reactiveForm)>
+
                 <div class="form-group">
                     <label for="fullName">Full Name</label>
                     <input id="fullName" type="text" class="form-control" [value]="fullName.value | titlecase"

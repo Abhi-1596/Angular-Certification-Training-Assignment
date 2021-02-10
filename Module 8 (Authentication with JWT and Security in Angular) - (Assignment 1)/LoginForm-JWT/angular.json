@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ReactiveFormApp": {
+    "LoginForm-JWT": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ReactiveFormApp",
+            "outputPath": "dist/LoginForm-JWT",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -25,7 +25,8 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/font-awesome/css/font-awesome.css"
             ],
             "scripts": []
           },
@@ -62,19 +63,19 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ReactiveFormApp:build",
+            "browserTarget": "LoginForm-JWT:build",
             "host": "localhost"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ReactiveFormApp:build:production"
+              "browserTarget": "LoginForm-JWT:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ReactiveFormApp:build"
+            "browserTarget": "LoginForm-JWT:build"
           }
         },
         "test": {
@@ -111,16 +112,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ReactiveFormApp:serve"
+            "devServerTarget": "LoginForm-JWT:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ReactiveFormApp:serve:production"
+              "devServerTarget": "LoginForm-JWT:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "ReactiveFormApp"
+  "defaultProject": "LoginForm-JWT"
 }
